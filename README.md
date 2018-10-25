@@ -4,7 +4,16 @@
 
 该项目主要用于OC混淆代码，如果您的项目有安全需求。想避免`class-dump`来解读您的代码，你不妨使用该项目。该工具基本全自动运行，设置得当基本不需要额外的对工程进行操作。如果有问题欢迎反馈，我会及时修复！ 
 
-该工具经过随机开源项目的测试，测试项目为[vanyaland/ToThePenny](https://github.com/vanyaland/ToThePenny)，具有非常好的通用性。
+该工具经过随机开源项目的测试，测试项目如下，具有非常好的通用性，并且一步完成混淆工作。
+
+* [vanyaland/ToThePenny](https://github.com/vanyaland/ToThePenny)
+* [austinzheng/iOS-2048](https://github.com/austinzheng/iOS-2048)
+
+
+## 演示（项目：iOS-2048）
+
+![ScreenShot Gif](./screen_shot.gif)
+
 
 ## Installation
 
@@ -43,6 +52,8 @@
 
 #### `codeobscure -h` for command help. 
 
+使用工具是时候，路径直接用绝对路径，不支持相对路径。（直接把文件拖到终端显示出来的路径就是绝对路径）
+
 
 	Usage: obscure code for object-c project
     -o, --obscure XcodeprojPath      obscure code
@@ -50,12 +61,13 @@
     -r, --reset                      reset loaded symbols
     -f, --fetch type1,type2,type3    fetch and replace type,default type is [c,p,f].c for class,p for property,f for function
     -i, --ignore XcodeprojPath       create a ignore file, you can write your filt symbols in it.eg:name,age ...
-
+	-t, --type replaceType           obscure type = [r,w,c] ,r: random w: random words c: custom replace rule
 
 * -o [Xcodeproj后缀的项目文件].    
 * -l [路径] 加载要过滤文件的路劲. 如果你不想混淆某些文件，用这个参数。   
 * -r 重置已加载的过滤的字符，-l的过滤文件字符会保存起来，如果你下一次不需要过滤这些文件，请用该命令重置一下.
 * -f, --fetch type1,type2,type3    获取需要混淆的类型,默认参数是c,p,f。也就是类名，属性和方法。c代表类名，p代表属性，f代表方法。
+* -t r、w、c   替换的文本形式  r：随机字符串  w：单词  c：自定义。自定义模式暂未实现。
 
 #### 使用及原理说明
 codeobscure主要用于oc（目前来说由于swift的特性摆在那里，这种方式不适用于swift）的项目，利用[iOS安全攻防（二十三）：Objective-C代码混淆](http://blog.csdn.net/yiyaaixuexi/article/details/29201699)的方式去进行代码混淆,纯粹的娱乐自己恶心他人。		
@@ -99,7 +111,7 @@ Example :
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/codeobscure. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kaich/codeobscure. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
